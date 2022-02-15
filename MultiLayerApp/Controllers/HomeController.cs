@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using MultiLayerApp.DAL.Core.Domian.Entities;
 using MultiLayerApp.DAL.Core.Interfaces;
 using MultiLayerApp.Mappers;
@@ -39,7 +40,12 @@ namespace MultiLayerApp.Controllers
 
             return View(phone);
         }
+        public ActionResult Create()
+        {
+            return View();
+        }
 
+        [HttpPost]
         public IActionResult Create(PhoneViewModel model)
         {
             if (model == null)
@@ -62,28 +68,31 @@ namespace MultiLayerApp.Controllers
             return View(phone);
         }
 
-        public IActionResult Update(Guid id, PhoneViewModel model)
+        public IActionResult Update(Guid id)
         {
-            var Phone = _phoneRepository.Get(id);
-            if (Phone == null)
-            {
-                return BadRequest();
-            }
+            if (id == null)
+                return NotFound();
+            var config = new MapperConfiguration(
+                cfg => cfg.CreateMap<Phone, PhoneViewModel>());
+            var mapper = new Mapper(config);
+            PhoneViewModel book = mapper.Map<Phone, PhoneViewModel>(_phoneRepository.Get(id));
 
-            Phone = PhoneMapper.MapFromModel(model, Phone);
-            try
-            {
-                _phoneRepository.Update(Phone);
-            }
-            catch (Exception e)
-            {
-                _logger.LogInformation("Ошибка при редактировании телефона");
-                return BadRequest(e.Message);
-            }
-
-            return View(Phone);
+            return View(book);
         }
-
+        [HttpPost]
+        public IActionResult Update(PhoneViewModel Model)
+        {
+            if (ModelState.IsValid)
+            {
+                var config = new MapperConfiguration(
+                    cfg => cfg.CreateMap<PhoneViewModel, Phone>());
+                var mapper = new Mapper(config);
+                Phone phone = mapper.Map<PhoneViewModel, Phone>(Model);
+                _phoneRepository.Update(phone);
+                return RedirectToAction("Index");
+            }
+            return View(Model);
+        }
         public IActionResult Delete(Guid id)
         {
             Phone toDelete = _phoneRepository.Get(id);
