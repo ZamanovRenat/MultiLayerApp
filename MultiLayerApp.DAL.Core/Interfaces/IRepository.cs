@@ -11,6 +11,6 @@ namespace MultiLayerApp.DAL.Core.Interfaces
         T Get(Guid id);
         void Create(T item);
         void Update(T item);
-        void Delete(Guid id);
+        void Delete(T item);
     }
 }
