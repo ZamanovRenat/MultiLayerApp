@@ -65,7 +65,8 @@ namespace MultiLayerApp.Controllers
                 return BadRequest(e.Message);
             }
 
-            return View(phone);
+            //return View(phone);
+            return RedirectToAction("Index");
         }
 
         public IActionResult Update(Guid id)
@@ -75,23 +76,29 @@ namespace MultiLayerApp.Controllers
             var config = new MapperConfiguration(
                 cfg => cfg.CreateMap<Phone, PhoneViewModel>());
             var mapper = new Mapper(config);
-            PhoneViewModel book = mapper.Map<Phone, PhoneViewModel>(_phoneRepository.Get(id));
+            PhoneViewModel model = mapper.Map<Phone, PhoneViewModel>(_phoneRepository.Get(id));
 
-            return View(book);
+            return View(model);
         }
         [HttpPost]
-        public IActionResult Update(PhoneViewModel Model)
+        public IActionResult Update(Guid id, PhoneViewModel Model)
         {
-            if (ModelState.IsValid)
+            Phone phone = _phoneRepository.Get(id);
+
+            phone = PhoneMapper.MapFromModel(Model, phone);
+
+            try
             {
-                var config = new MapperConfiguration(
-                    cfg => cfg.CreateMap<PhoneViewModel, Phone>());
-                var mapper = new Mapper(config);
-                Phone phone = mapper.Map<PhoneViewModel, Phone>(Model);
                 _phoneRepository.Update(phone);
-                return RedirectToAction("Index");
             }
-            return View(Model);
+            catch (Exception e)
+            {
+                _logger.LogInformation("Ошибка при изменении телефона");
+                return BadRequest(e.Message);
+            }
+            _logger.LogInformation("Телефон изменен");
+
+            return RedirectToAction("Index");
         }
         public IActionResult Delete(Guid id)
         {
