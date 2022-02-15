@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{382413B8-395
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiLayerApp.DAL.Core", "MultiLayerApp.DAL.Core\MultiLayerApp.DAL.Core.csproj", "{FA344C37-DE47-4954-8F24-8169E0FD554A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiLayerApp.DAL.DataAccess", "MultiLayerApp.DAL.DataAccess\MultiLayerApp.DAL.DataAccess.csproj", "{2A183259-6687-40C8-ACF9-BFEDDD8D575C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,12 +25,17 @@ Global
 		{FA344C37-DE47-4954-8F24-8169E0FD554A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA344C37-DE47-4954-8F24-8169E0FD554A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA344C37-DE47-4954-8F24-8169E0FD554A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A183259-6687-40C8-ACF9-BFEDDD8D575C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A183259-6687-40C8-ACF9-BFEDDD8D575C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A183259-6687-40C8-ACF9-BFEDDD8D575C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A183259-6687-40C8-ACF9-BFEDDD8D575C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FA344C37-DE47-4954-8F24-8169E0FD554A} = {382413B8-395C-46BF-A22E-A4624AC65109}
+		{2A183259-6687-40C8-ACF9-BFEDDD8D575C} = {382413B8-395C-46BF-A22E-A4624AC65109}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E88E2AEE-D730-4D3D-9F38-CFFD357F562A}
