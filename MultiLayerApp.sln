@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiLayerApp.DAL.Core", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiLayerApp.DAL.DataAccess", "MultiLayerApp.DAL.DataAccess\MultiLayerApp.DAL.DataAccess.csproj", "{2A183259-6687-40C8-ACF9-BFEDDD8D575C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiLayerApp.Angular", "MultiLayerApp.Angular\MultiLayerApp.Angular.csproj", "{EE311585-A0E2-4A5F-9376-67AA58701904}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{2A183259-6687-40C8-ACF9-BFEDDD8D575C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A183259-6687-40C8-ACF9-BFEDDD8D575C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A183259-6687-40C8-ACF9-BFEDDD8D575C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE311585-A0E2-4A5F-9376-67AA58701904}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE311585-A0E2-4A5F-9376-67AA58701904}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE311585-A0E2-4A5F-9376-67AA58701904}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE311585-A0E2-4A5F-9376-67AA58701904}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
